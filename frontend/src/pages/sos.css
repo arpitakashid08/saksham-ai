@@ -1,0 +1,210 @@
+/* Emergency SOS page-specific styles */
+
+/* SOS Button */
+.sos-hint {
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--brown-light);
+  margin-bottom: 24px;
+}
+
+.sos-btn-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.sos-btn {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--red-dot);
+  color: #fff;
+  font-size: 42px;
+  font-family: var(--font);
+  letter-spacing: 4px;
+  border: 6px solid #b71c1c;
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgba(229,57,53,0.15), 0 8px 24px rgba(229,57,53,0.35);
+  transition: transform 0.1s, box-shadow 0.2s;
+  position: relative;
+  z-index: 2;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.sos-btn:hover  { transform: scale(1.04); }
+.sos-btn.holding {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 16px rgba(229,57,53,0.2), 0 4px 16px rgba(229,57,53,0.4);
+  animation: sosPulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes sosPulse {
+  from { box-shadow: 0 0 0 10px rgba(229,57,53,0.2); }
+  to   { box-shadow: 0 0 0 24px rgba(229,57,53,0.05); }
+}
+
+.sos-ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes sosRing {
+  from { stroke-dashoffset: 339; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* SOS triggered state */
+.sos-triggered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }
+
+.sos-triggered-icon { font-size: 64px; }
+.sos-triggered h3   { font-size: 32px; letter-spacing: 4px; color: var(--red-dot); margin: 0; }
+.sos-triggered p    { font-size: 18px; letter-spacing: 1px; margin: 0; }
+
+.sos-loc-link {
+  color: var(--brown);
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: underline;
+}
+
+.sos-msg-box {
+  background: var(--cream-dark);
+  border: 2px dashed var(--brown-light);
+  border-radius: 10px;
+  padding: 14px 18px;
+  text-align: left;
+  max-width: 480px;
+  width: 100%;
+}
+.sos-msg-box pre {
+  font-family: var(--font);
+  font-size: 16px;
+  letter-spacing: 1px;
+  white-space: pre-wrap;
+  margin: 0;
+  color: var(--brown);
+  line-height: 1.6;
+}
+
+/* Contact form */
+.sos-contact-form {
+  background: var(--cream);
+  border: 2px dashed var(--brown-light);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.sos-form-title { font-size: 20px; letter-spacing: 2px; margin: 0 0 14px 0; }
+.sos-form-error { color: var(--red-dot); font-size: 15px; letter-spacing: 1px; margin: 8px 0 0 0; }
+.sos-form-success { color: var(--green-dot); font-size: 15px; letter-spacing: 1px; margin: 8px 0 0 0; }
+
+.sos-primary-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.sos-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+/* Contact list */
+.sos-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sos-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--cream);
+  border: 2px solid var(--mint-dark);
+  border-radius: 12px;
+  padding: 14px;
+  transition: border-color 0.2s;
+}
+.sos-contact-card.primary { border-color: var(--brown); background: var(--mint); }
+
+.sos-contact-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--brown);
+  color: var(--mint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.sos-contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sos-contact-name   { font-size: 20px; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+.sos-contact-rel    { font-size: 14px; color: var(--brown-light); letter-spacing: 1px; }
+.sos-contact-detail { font-size: 15px; letter-spacing: 1px; }
+
+.sos-primary-badge {
+  background: var(--brown);
+  color: var(--mint);
+  font-size: 11px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  letter-spacing: 2px;
+}
+
+.sos-contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Services list */
+.sos-services {
+  background: var(--cream);
+  border: 2px dashed var(--brown-light);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sos-service-item {
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(59,42,36,0.1);
+  color: var(--brown-light);
+}
+.sos-service-item:last-child { border-bottom: none; }

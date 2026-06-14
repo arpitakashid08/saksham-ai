@@ -1,0 +1,377 @@
+/* ==========================================================
+   Environmental Awareness Assistant
+   Saksham AI Theme
+========================================================== */
+
+.env-page {
+  min-height: 100vh;
+  background: var(--cream);
+  display: flex;
+  font-family: var(--font);
+}
+
+/* ───────────────── Sidebar ───────────────── */
+
+.env-sidebar {
+  width: 300px;
+  background: var(--mint);
+  border-right: var(--border);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow);
+}
+
+.env-logo {
+  font-size: 64px;
+  text-align: center;
+}
+
+.env-title {
+  font-size: 34px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin: 0;
+}
+
+.env-subtitle {
+  text-align: center;
+  color: var(--brown-light);
+  letter-spacing: 2px;
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
+
+.env-description {
+  background: var(--cream);
+  border: 2px dashed var(--brown-light);
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.env-main-btn {
+  background: var(--brown);
+  color: var(--mint);
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: var(--font);
+  cursor: pointer;
+  letter-spacing: 2px;
+  box-shadow: 3px 4px 0 rgba(0,0,0,0.18);
+  transition: var(--tr);
+}
+
+.env-main-btn:hover {
+  transform: translateY(-2px);
+}
+
+.env-info-box {
+  background: var(--cream);
+  border: 2px solid var(--brown);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.env-info-box h4 {
+  margin: 0 0 8px;
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.env-info-box p {
+  margin: 0;
+  font-size: 17px;
+}
+
+.env-info-box ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.env-info-box li {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.env-info-box select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--brown);
+  background: var(--cream);
+  font-family: var(--font);
+  font-size: 17px;
+}
+
+.env-back-btn {
+  margin-top: auto;
+  text-decoration: none;
+  background: var(--brown);
+  color: var(--mint);
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  letter-spacing: 2px;
+}
+
+.env-error {
+  background: #FFE5E5;
+  border: 3px solid var(--red-dot);
+  border-radius: var(--panel-r);
+  color: var(--red-dot);
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 12px 16px;
+  box-shadow: var(--shadow);
+}
+
+/* ───────────────── Main Area ───────────────── */
+
+.env-main {
+  flex: 1;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ───────────────── Map Panel ───────────────── */
+
+.env-map-panel {
+  background: var(--mint);
+  border: var(--border);
+  border-radius: var(--panel-r);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.env-map-panel h2 {
+  margin-top: 0;
+  letter-spacing: 3px;
+}
+
+.env-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.env-status,
+.env-count {
+  background: var(--brown);
+  border-radius: 999px;
+  color: var(--mint);
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+}
+
+.env-status.active {
+  background: var(--green-dot);
+}
+
+.env-status.idle {
+  background: var(--brown-light);
+}
+
+/* Leaflet Map */
+
+.leaflet-container {
+  border-radius: 12px;
+  border: 2px solid var(--brown);
+}
+
+/* ───────────────── Priority Alert ───────────────── */
+
+.env-alert {
+  background: #FFF5CC;
+  border: 3px solid var(--amber);
+  border-radius: var(--panel-r);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.env-alert h3 {
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.env-alert h1 {
+  margin: 10px 0;
+  font-size: 34px;
+}
+
+.env-alert p {
+  margin: 4px 0;
+  font-size: 18px;
+}
+
+.env-alert.danger {
+  background: #FFE5E5;
+  border-color: var(--red-dot);
+  animation: pulse-alert 1.2s infinite;
+}
+
+@keyframes pulse-alert {
+  0% {
+    box-shadow: 0 0 0 0 rgba(229,57,53,0.35);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(229,57,53,0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(229,57,53,0);
+  }
+}
+
+/* ───────────────── Detection Feed ───────────────── */
+
+.env-feed {
+  background: var(--mint);
+  border: var(--border);
+  border-radius: var(--panel-r);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.env-feed h2 {
+  margin-top: 0;
+  letter-spacing: 3px;
+}
+
+.env-empty {
+  padding: 28px;
+  text-align: center;
+  color: var(--brown-light);
+  font-size: 18px;
+}
+
+.env-event-card {
+  background: var(--cream);
+  border: 2px solid var(--brown);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+  transition: var(--tr);
+}
+
+.env-event-card:hover {
+  transform: translateY(-2px);
+}
+
+.event-icon {
+  font-size: 40px;
+}
+
+.event-content {
+  flex: 1;
+}
+
+.event-content h3 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+
+.event-content p {
+  margin: 2px 0;
+  font-size: 16px;
+}
+
+.env-confidence {
+  width: 100%;
+  height: 8px;
+  background: rgba(59,42,36,0.12);
+  border-radius: 999px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.env-confidence span {
+  display: block;
+  height: 100%;
+  background: var(--green-dot);
+  border-radius: inherit;
+}
+
+.event-time {
+  font-size: 13px;
+  color: var(--brown-light);
+}
+
+/* ───────────────── Summary ───────────────── */
+
+.env-summary {
+  background: var(--mint);
+  border: var(--border);
+  border-radius: var(--panel-r);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.env-summary h2 {
+  margin-top: 0;
+  letter-spacing: 3px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.summary-card {
+  background: var(--cream);
+  border: 2px solid var(--brown);
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  transition: var(--tr);
+}
+
+.summary-card:hover {
+  transform: translateY(-2px);
+}
+
+.summary-card span {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  color: var(--brown-light);
+}
+
+.summary-card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 28px;
+}
+
+/* ───────────────── Responsive ───────────────── */
+
+@media (max-width: 900px) {
+  .env-page {
+    flex-direction: column;
+  }
+
+  .env-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .env-main {
+    padding: 16px;
+  }
+}

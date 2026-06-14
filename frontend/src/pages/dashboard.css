@@ -1,0 +1,207 @@
+/* Dashboard page-specific styles */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.dash-body {
+  min-height: 100vh;
+  background: var(--cream);
+  font-family: var(--font);
+}
+
+/* ── Header ───────────────────────────────────────────── */
+.dash-header {
+  background: var(--brown);
+  color: var(--mint);
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 4px solid rgba(255,255,255,0.1);
+}
+
+.dash-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dash-header-title {
+  font-size: 36px;
+  letter-spacing: 4px;
+  margin: 0;
+  line-height: 1;
+}
+
+.dash-header-sub {
+  font-size: 14px;
+  letter-spacing: 4px;
+  margin: 0;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.dash-header-widgets {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dash-widget {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+  gap: 2px;
+}
+
+.dash-widget-icon  { font-size: 20px; }
+.dash-widget-label { font-size: 11px; letter-spacing: 2px; opacity: 0.65; }
+.dash-widget-val   { font-size: 26px; letter-spacing: 2px; }
+
+/* ── Content ──────────────────────────────────────────── */
+.dash-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 28px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Status row ───────────────────────────────────────── */
+.dash-status-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dash-status-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--mint);
+  border: var(--border);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  box-shadow: 2px 3px 0 rgba(59,42,36,0.1);
+}
+
+/* ── Section title ────────────────────────────────────── */
+.dash-section-title {
+  font-size: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--brown-light);
+  margin: 0 0 16px 0;
+}
+
+/* ── Module cards grid ────────────────────────────────── */
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.dash-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--mint);
+  border: 3px solid var(--brown);
+  border-radius: 16px;
+  padding: 20px 18px;
+  text-decoration: none;
+  color: var(--brown);
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.dash-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--card-color, var(--brown));
+  border-radius: 16px 0 0 16px;
+}
+
+.dash-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 7px 10px 0 rgba(59,42,36,0.15);
+  background: var(--cream-dark);
+}
+
+.dash-card-badge {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  background: var(--card-color, var(--brown));
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 99px;
+  opacity: 0.85;
+}
+
+.dash-card-icon {
+  font-size: 44px;
+  flex-shrink: 0;
+  filter: drop-shadow(2px 3px 0 rgba(59,42,36,0.1));
+}
+
+.dash-card-body { flex: 1; }
+.dash-card-title { font-size: 22px; letter-spacing: 2px; margin: 0 0 4px 0; }
+.dash-card-sub   { font-size: 14px; letter-spacing: 1px; color: var(--brown-light); margin: 0; }
+.dash-card-arrow { font-size: 24px; opacity: 0.4; transition: opacity 0.15s, transform 0.15s; }
+.dash-card:hover .dash-card-arrow { opacity: 0.9; transform: translateX(4px); }
+
+/* ── Info strip ───────────────────────────────────────── */
+.dash-info-strip {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.dash-info-item {
+  flex: 1 1 220px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--mint);
+  border: var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.dash-info-icon { font-size: 36px; flex-shrink: 0; }
+.dash-info-item strong { font-size: 18px; letter-spacing: 2px; display: block; margin-bottom: 4px; }
+.dash-info-item p { font-size: 14px; letter-spacing: 1px; color: var(--brown-light); margin: 0; }
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 700px) {
+  .dash-header {
+    padding: 16px;
+  }
+
+  .dash-content {
+    padding: 16px;
+  }
+
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+}

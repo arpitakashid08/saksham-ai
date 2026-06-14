@@ -1,0 +1,19 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# React
+node_modules/
+dist/
+
+# Mac
+.DS_Store
+
+# Uploads
+uploads/
+
+# Environment variables
+.env
+

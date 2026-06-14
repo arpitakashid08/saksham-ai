@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  background: #f3eee7;
+  font-family: 'VT323', monospace;
+}
+
+/* LEFT SIDE */
+
+.login-left {
+  flex: 1;
+  background: #3B2A24;
+  color: #f7f4ef;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 60px;
+}
+
+.login-left h1 {
+  font-size: 72px;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+}
+
+.login-left h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.login-left p {
+  font-size: 24px;
+  line-height: 1.5;
+  max-width: 450px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* RIGHT SIDE */
+
+.login-right {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 500px;
+
+  background: #dce6e2;
+
+  border: 3px solid #3B2A24;
+  border-radius: 20px;
+
+  padding: 40px;
+
+  box-shadow: 8px 8px 0 rgba(59,42,36,.2);
+}
+
+.login-card h2 {
+  font-size: 38px;
+  margin-bottom: 30px;
+  color: #3B2A24;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 16px;
+
+  border: 2px solid #3B2A24;
+  border-radius: 10px;
+
+  background: white;
+
+  font-size: 18px;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #3B2A24;
+  color: white;
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  opacity: 0.9;
+}
+
+.switch-auth {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.switch-auth span {
+  color: #3B2A24;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .login-left h1 {
+    font-size: 48px;
+  }
+
+  .login-right {
+    padding: 20px;
+  }
+}
