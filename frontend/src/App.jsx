@@ -5,7 +5,6 @@ import Dashboard           from "./pages/Dashboard";
 import Camera              from "./pages/Camera";
 import History             from "./pages/History";
 import Alerts              from "./pages/Alerts";
-import Chat                from "./pages/Chat";
 import SignRecognition     from "./pages/SignRecognition";
 import NavigationAssistant from "./pages/NavigationAssistant";
 import SmartAlerts         from "./pages/SmartAlerts";
@@ -17,13 +16,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Auth */}
+        
         <Route path="/"          element={<Login />} />
 
-        {/* Dashboard */}
+        
         <Route path="/dashboard" element={<Dashboard />} />
 
-        {/* Feature modules */}
+       
         <Route path="/sign"        element={<SignRecognition />} />
         <Route path="/navigation"  element={<NavigationAssistant />} />
         <Route path="/environment" element={<Environmental />} />
@@ -31,11 +30,10 @@ function App() {
         <Route path="/sos"         element={<EmergencySOS />} />
         <Route path="/settings" element={<Settings />} />
 
-        {/* Legacy / other pages */}
+        
         <Route path="/camera"  element={<Camera />} />
         <Route path="/history" element={<History />} />
         <Route path="/alerts"  element={<Alerts />} />
-        <Route path="/chat"    element={<Chat />} />
       </Routes>
     </BrowserRouter>
   );

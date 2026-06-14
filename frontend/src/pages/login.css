@@ -7,7 +7,7 @@
   font-family: 'VT323', monospace;
 }
 
-/* LEFT SIDE */
+
 
 .login-left {
   flex: 1;
@@ -39,7 +39,6 @@
   color: rgba(255,255,255,0.8);
 }
 
-/* RIGHT SIDE */
 
 .login-right {
   flex: 1;
@@ -113,7 +112,6 @@
   font-weight: bold;
 }
 
-/* MOBILE */
 
 @media (max-width: 900px) {
   .login-container {

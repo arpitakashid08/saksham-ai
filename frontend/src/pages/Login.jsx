@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./login.css";
+import '.login./.css';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ export default function Login() {
   return (
     <div className="container">
 
-      {/* LEFT PANEL */}
+      
 
       <div className="left-panel">
         <h1>🤟 SAKSHAM AI</h1>
@@ -72,7 +72,7 @@ export default function Login() {
         </p>
       </div>
 
-      {/* RIGHT PANEL */}
+      
 
       <div className="right-panel">
 

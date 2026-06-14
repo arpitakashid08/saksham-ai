@@ -1,10 +1,5 @@
 import React from 'react';
 
-/**
- * TranscriptBox
- * Renders each recognised sign word on its own animated line.
- * aria-live="polite" makes screen-readers announce new words.
- */
 export default function TranscriptBox({ transcript }) {
   const hasContent = Array.isArray(transcript) && transcript.length > 0;
 

@@ -49,17 +49,17 @@ export default function SignRecognition() {
   }
 }, []);
 
-  /* Auto-scroll transcript */
+  
   useEffect(() => {
     transcriptEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [transcript]);
 
-  /* Camera permission granted */
+  
   const onUserMedia = useCallback(() => {
     setCamReady(true);
   }, []);
 
-  /* Capture loop ── runs every 1.5 s while active */
+  
   useEffect(() => {
     if (!isActive) return;
 
@@ -105,12 +105,10 @@ export default function SignRecognition() {
     <div className="sign-body">
       <div className="sign-page">
 
-        {/* ═══════════════════════════════════════
-            LEFT PANEL
-        ═══════════════════════════════════════ */}
+        
         <aside className="left-panel" aria-label="Saksham AI Sign Recognition sidebar">
 
-          {/* Brand */}
+          
           <div className="brand-logo">
             <span className="brand-icon" aria-hidden="true">🤟</span>
             <h1>SAKSHAM AI</h1>
@@ -122,7 +120,7 @@ export default function SignRecognition() {
             Empowering Communication Through Sign Language Recognition
           </p>
 
-          {/* Illustration */}
+          
           <div
             className="illustration"
             role="img"
@@ -145,12 +143,10 @@ export default function SignRecognition() {
           </Link>
         </aside>
 
-        {/* ═══════════════════════════════════════
-            RIGHT PANEL
-        ═══════════════════════════════════════ */}
+        
         <main className="right-panel" aria-label="Sign recognition main area">
 
-          {/* ── TOP: Camera ─────────────────── */}
+          
           <section
             id="camera-section"
             className="camera-section"
@@ -178,10 +174,10 @@ export default function SignRecognition() {
             <div className="camera-box">
               <CameraFeed ref={webcamRef} onUserMedia={onUserMedia} />
 
-              {/* Scan-line animation when active */}
+              
               {isActive && <div className="camera-scan-line" aria-hidden="true" />}
 
-              {/* Overlay when camera not yet ready */}
+              
               {!camReady && (
                 <div className="camera-inactive-overlay" aria-live="polite">
                   <span className="cam-icon">📷</span>
@@ -190,7 +186,7 @@ export default function SignRecognition() {
               )}
             </div>
 
-            {/* Confidence strip */}
+            
             <div className="confidence-strip" aria-label="Detection confidence">
               <span className="conf-label">DETECTED</span>
               <span className="conf-value">{detected}</span>
@@ -205,7 +201,7 @@ export default function SignRecognition() {
             </div>
           </section>
 
-          {/* ── MIDDLE: Transcript ──────────── */}
+          
           <section className="output-section" aria-label="Recognized text output">
             <div className="section-header">
               <h2 className="section-title">💬 Message Output</h2>
@@ -214,7 +210,7 @@ export default function SignRecognition() {
             <div ref={transcriptEndRef} />
           </section>
 
-          {/* ── BOTTOM: Controls ────────────── */}
+          
           <ControlPanel
             onStart={handleStart}
             onPause={handlePause}

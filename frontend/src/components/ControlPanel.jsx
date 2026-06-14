@@ -1,12 +1,4 @@
 import React from 'react';
-
-/**
- * ControlPanel
- * Provides: Start / Pause / Clear buttons, status indicator dot,
- * and language dropdown (ISL / ASL).
- *
- * Future hook: onStart / onPause will trigger Flask API calls.
- */
 export default function ControlPanel({
   onStart,
   onPause,
@@ -22,7 +14,7 @@ export default function ControlPanel({
       </div>
 
       <div className="controls-row">
-        {/* Start */}
+        
         <button
           id="btn-start-recognition"
           className="ctrl-btn start"
@@ -34,7 +26,7 @@ export default function ControlPanel({
           ▶ START
         </button>
 
-        {/* Pause */}
+        
         <button
           id="btn-pause-recognition"
           className="ctrl-btn pause"
@@ -46,7 +38,7 @@ export default function ControlPanel({
           ⏸ PAUSE
         </button>
 
-        {/* Clear */}
+        
         <button
           id="btn-clear-transcript"
           className="ctrl-btn clear"
@@ -56,7 +48,7 @@ export default function ControlPanel({
           ✕ CLEAR
         </button>
 
-        {/* Language Dropdown */}
+        
         <select
           id="language-select"
           className="lang-select"
@@ -68,7 +60,7 @@ export default function ControlPanel({
           <option value="ASL">American Sign Language (ASL)</option>
         </select>
 
-        {/* Status pill */}
+        
         <div className="status-pill" aria-label={isActive ? 'Recognition active' : 'Recognition paused'}>
           <span className={`status-dot ${isActive ? 'active' : 'paused'}`} />
           {isActive ? 'ACTIVE' : 'PAUSED'}

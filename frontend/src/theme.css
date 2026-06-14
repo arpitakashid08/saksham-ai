@@ -1,11 +1,5 @@
-/* ============================================================
-   SAKSHAM AI — Shared Retro Accessibility Theme
-   All pages share these tokens. Each page imports this file.
-   ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-/* ── Design Tokens ──────────────────────────────────────── */
 :root {
   --cream:        #F6F0E7;
   --cream-dark:   #EDE6D6;
@@ -24,7 +18,7 @@
   --tr:           0.22s ease;
 }
 
-/* ── Global base ────────────────────────────────────────── */
+
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
@@ -35,7 +29,7 @@ body {
   padding: 0;
 }
 
-/* ── Page shell ─────────────────────────────────────────── */
+
 .sak-body {
   min-height: 100vh;
   background: var(--cream);
@@ -52,7 +46,7 @@ body {
   align-items: flex-start;
 }
 
-/* ── Sidebar ────────────────────────────────────────────── */
+
 .sak-sidebar {
   flex: 0 0 290px;
   min-width: 250px;
@@ -133,7 +127,7 @@ body {
 .sak-illus-icon  { font-size: 60px; z-index: 1; filter: drop-shadow(2px 3px 0 rgba(59,42,36,0.12)); }
 .sak-illus-label { z-index: 1; font-size: 15px; letter-spacing: 3px; opacity: .65; }
 
-/* ── Main content area ──────────────────────────────────── */
+
 .sak-main {
   flex: 1 1 0;
   display: flex;
@@ -142,7 +136,7 @@ body {
   min-width: 0;
 }
 
-/* ── Panel card ─────────────────────────────────────────── */
+
 .sak-panel {
   background: var(--mint);
   border: var(--border);
@@ -179,7 +173,7 @@ body {
 .sak-badge.amber  { background: var(--amber); }
 .sak-badge.red    { background: var(--red-dot); }
 
-/* ── Buttons ────────────────────────────────────────────── */
+
 .btn-primary {
   background: var(--brown);
   color: var(--mint);
@@ -234,7 +228,7 @@ body {
   width: auto;
 }
 
-/* ── Form elements ──────────────────────────────────────── */
+
 .sak-input, .sak-select {
   width: 100%;
   padding: 10px 14px;
@@ -280,7 +274,7 @@ body {
 
 @media (max-width: 600px) { .sak-form-grid { grid-template-columns: 1fr; } }
 
-/* ── Toggle switch ──────────────────────────────────────── */
+
 .sak-toggle-row {
   display: flex;
   align-items: center;
@@ -322,7 +316,7 @@ body {
 .sak-toggle input:checked + .sak-toggle-slider { background: var(--green-dot); border-color: #388E3C; }
 .sak-toggle input:checked + .sak-toggle-slider::before { transform: translateX(22px); background: #fff; }
 
-/* ── Status indicators ──────────────────────────────────── */
+
 .status-dot {
   width: 11px;
   height: 11px;
@@ -351,7 +345,6 @@ body {
   letter-spacing: 2px;
 }
 
-/* ── Info/empty state ───────────────────────────────────── */
 .sak-empty {
   text-align: center;
   padding: 32px 16px;
@@ -371,7 +364,7 @@ body {
   line-height: 1.6;
 }
 
-/* ── Alert item ─────────────────────────────────────────── */
+
 .sak-alert-item {
   display: flex;
   gap: 12px;
@@ -392,7 +385,7 @@ body {
 .sak-alert-text { font-size: 20px; letter-spacing: 1px; margin: 2px 0; }
 .sak-alert-meta { font-size: 13px; color: var(--brown-light); letter-spacing: 1px; }
 
-/* ── History table ──────────────────────────────────────── */
+
 .sak-table {
   width: 100%;
   border-collapse: collapse;
@@ -415,7 +408,7 @@ body {
 .sak-table tr:last-child td { border-bottom: none; }
 .sak-table tr:nth-child(even) td { background: rgba(220,232,226,0.4); }
 
-/* ── Loading spinner ────────────────────────────────────── */
+
 .sak-spinner {
   display: inline-block;
   width: 20px;
@@ -429,7 +422,7 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Responsive ─────────────────────────────────────────── */
+
 @media (max-width: 860px) {
   .sak-page {
     flex-direction: column;

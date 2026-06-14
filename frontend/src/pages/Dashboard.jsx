@@ -4,7 +4,7 @@ import '../theme.css';
 import './dashboard.css';
 import { apiRequest, USER_ID } from '../api';
 
-/* ── Module definitions ───────────────────────────────── */
+
 const MODULES = [
   {
     id: 'sign',
@@ -88,7 +88,6 @@ export default function Dashboard() {
   }
 }, []);
 
-  /* ── Fetch quick stats ──────────────────────────── */
   useEffect(() => {
     const load = async () => {
       try {
@@ -109,7 +108,7 @@ export default function Dashboard() {
 
   return (
     <div className="sak-body dash-body">
-      {/* ── Header bar ──────────────────────────────── */}
+      
       <header className="dash-header">
         <div className="dash-header-brand">
           <span style={{ fontSize: 36 }}></span>
@@ -153,7 +152,7 @@ export default function Dashboard() {
       </header>
 
       <div className="dash-content">
-        {/* ── Quick status strip ─────────────────────── */}
+        
         <div className="dash-status-row">
           <div className="dash-status-card">
             <span className="status-dot active" />
@@ -171,7 +170,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* ── Module grid ────────────────────────────── */}
+        
         <section aria-label="Accessibility modules">
         <h2 className="dash-section-title">Accessibility Modules</h2>
 
@@ -197,7 +196,7 @@ export default function Dashboard() {
   </div>
 </section>
 
-        {/* ── Info strip ─────────────────────────────── */}
+        
         <div className="dash-info-strip">
           <div className="dash-info-item">
             <span className="dash-info-icon">🤟</span>

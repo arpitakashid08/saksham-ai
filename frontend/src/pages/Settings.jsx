@@ -89,7 +89,7 @@ useEffect(() => {
   return (
     <div className="settings-page">
 
-      {/* LEFT PANEL */}
+      
 
       <aside className="settings-sidebar">
 
@@ -124,7 +124,7 @@ useEffect(() => {
 
       </aside>
 
-      {/* RIGHT PANEL */}
+      
 
       <main className="settings-content">
 
@@ -132,7 +132,7 @@ useEffect(() => {
           ⚙️ SETTINGS
         </div>
 
-        {/* PROFILE */}
+        
 
         <section className="settings-card">
           <h2>👤 User Profile</h2>
@@ -181,7 +181,7 @@ useEffect(() => {
           </div>
         </section>
 
-        {/* ACCESSIBILITY */}
+       
 
         <section className="settings-card">
           <h2>♿ Accessibility Settings</h2>
@@ -223,7 +223,7 @@ useEffect(() => {
           </div>
         </section>
 
-        {/* MODULE SETTINGS */}
+        
 
         <section className="settings-card">
           <h2>🧭 Module Preferences</h2>

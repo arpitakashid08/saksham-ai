@@ -35,7 +35,7 @@ def init_db():
     conn = sqlite3.connect(DATABASE, timeout=10, check_same_thread=False)
     cur = conn.cursor()
 
-    # ── Users ──────────────────────────────────────────────
+    
     cur.execute("""
     CREATE TABLE IF NOT EXISTS users (
         id       INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,7 +45,7 @@ def init_db():
     )
     """)
 
-    # ── Navigation History ─────────────────────────────────
+    
     cur.execute("""
     CREATE TABLE IF NOT EXISTS navigation_history (
         id          INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -65,7 +65,7 @@ def init_db():
     )
     """)
 
-    # ── Alert History ──────────────────────────────────────
+    
     cur.execute("""
     CREATE TABLE IF NOT EXISTS alert_history (
         id            INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -81,7 +81,7 @@ def init_db():
     )
     """)
 
-    # ── Emergency Contacts ─────────────────────────────────
+    
     cur.execute("""
     CREATE TABLE IF NOT EXISTS emergency_contacts (
         id              INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -95,7 +95,7 @@ def init_db():
     )
     """)
 
-    # ── Sign Recognition History ───────────────────────────
+    
     cur.execute("""
     CREATE TABLE IF NOT EXISTS sign_history (
         id              INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -106,7 +106,7 @@ def init_db():
     )
     """)
 
-    # ── SOS History ───────────────────────────────────────
+    
     cur.execute("""
     CREATE TABLE IF NOT EXISTS sos_history (
         id            INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -6,7 +6,6 @@ import { apiErrorMessage, apiRequest, USER_ID } from '../api';
 
 const EMPTY_CONTACT = { name: '', relationship: '', phone: '', email: '', primary_contact: false };
 
-/* ── Emergency message builder ───────────────────────── */
 function buildSosMessage(locationLink) {
   return `🆘 Emergency Alert from Saksham AI
 
@@ -48,7 +47,6 @@ export default function EmergencySOS() {
   }
 }, []);
 
-  /* ── Fetch contacts ───────────────────────────────── */
   const fetchContacts = useCallback(async () => {
     setLoading(true);
     setPageError('');
@@ -64,7 +62,6 @@ export default function EmergencySOS() {
 
   useEffect(() => { fetchContacts(); }, [fetchContacts]);
 
-  /* ── Form helpers ─────────────────────────────────── */
   const handleFieldChange = (k, v) => {
     setForm(prev => ({ ...prev, [k]: v }));
     setFormError('');
@@ -120,7 +117,6 @@ export default function EmergencySOS() {
 
   const cancelEdit = () => { setForm(EMPTY_CONTACT); setEditId(null); setFormError(''); };
 
-  /* ── Location fetch ───────────────────────────────── */
   const getLocationLink = () => new Promise((res) => {
     navigator.geolocation?.getCurrentPosition(
       pos => res(`https://maps.google.com/?q=${pos.coords.latitude},${pos.coords.longitude}`),
@@ -128,7 +124,7 @@ export default function EmergencySOS() {
     );
   });
 
-  /* ── SOS hold button ──────────────────────────────── */
+  
   const startHold = () => {
     if (sosTriggered) return;
     setSosActive(true);
@@ -189,7 +185,7 @@ export default function EmergencySOS() {
     <div className="sak-body">
       <div className="sak-page">
 
-        {/* ── SIDEBAR ─────────────────────────────────── */}
+        
         <aside className="sak-sidebar">
           <div className="sak-brand">
             <span className="sak-brand-icon">🆘</span>
@@ -205,7 +201,6 @@ export default function EmergencySOS() {
             <span className="sak-illus-label">EMERGENCY</span>
           </div>
 
-          {/* Share Location Toggle */}
           <div className="sak-toggle-row" style={{ padding: '12px 0' }}>
             <span>📍 Share Live Location</span>
             <label className="sak-toggle">
@@ -226,10 +221,8 @@ export default function EmergencySOS() {
           </Link>
         </aside>
 
-        {/* ── MAIN ────────────────────────────────────── */}
         <main className="sak-main">
 
-          {/* SOS Button */}
           <div className="sak-panel" style={{ textAlign: 'center' }}>
             <div className="sak-panel-header" style={{ justifyContent: 'center' }}>
               <h2 className="sak-panel-title">🆘 Emergency Button</h2>
@@ -282,7 +275,7 @@ export default function EmergencySOS() {
             )}
           </div>
 
-          {/* Contacts Panel */}
+          
           <div className="sak-panel">
             <div className="sak-panel-header">
               <h2 className="sak-panel-title">📇 Emergency Contacts</h2>
@@ -292,7 +285,6 @@ export default function EmergencySOS() {
             {pageError && <p className="sos-form-error">{pageError}</p>}
             {pageNotice && <p className="sos-form-success">{pageNotice}</p>}
 
-            {/* Contact Form */}
             <div className="sos-contact-form">
               <h3 className="sos-form-title">{editId ? '✏️ Edit Contact' : '➕ Add Contact'}</h3>
               <div className="sak-form-grid">
@@ -341,7 +333,7 @@ export default function EmergencySOS() {
               </div>
             </div>
 
-            {/* Contact list */}
+            
             {loading && !contacts.length ? (
               <div className="sak-empty"><span className="sak-spinner" /> Loading contacts…</div>
             ) : contacts.length === 0 ? (

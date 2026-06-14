@@ -1,6 +1,3 @@
-/* Emergency SOS page-specific styles */
-
-/* SOS Button */
 .sos-hint {
   font-size: 18px;
   letter-spacing: 1px;
@@ -64,7 +61,7 @@
   to   { stroke-dashoffset: 0; }
 }
 
-/* SOS triggered state */
+
 .sos-triggered {
   display: flex;
   flex-direction: column;
@@ -106,7 +103,7 @@
   line-height: 1.6;
 }
 
-/* Contact form */
+
 .sos-contact-form {
   background: var(--cream);
   border: 2px dashed var(--brown-light);
@@ -132,7 +129,7 @@
   flex-wrap: wrap;
 }
 
-/* Contact list */
+
 .sos-contact-list {
   display: flex;
   flex-direction: column;
@@ -189,7 +186,7 @@
   gap: 6px;
 }
 
-/* Services list */
+
 .sos-services {
   background: var(--cream);
   border: 2px dashed var(--brown-light);
