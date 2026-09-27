@@ -5,10 +5,25 @@ import "./settings.css";
 export default function Settings() {
   const navigate = useNavigate();
 
+  // Get currently logged-in user
+  const user = JSON.parse(localStorage.getItem("user") || "null");
+
+  // If nobody is logged in, go back to login
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
+  // Create a separate settings key for every user
+  const settingsKey = user
+    ? `saksham_settings_${user.id}`
+    : "saksham_settings";
+
   const [profile, setProfile] = useState({
-    name: "Arpita Kashid",
-    email: "arpita@example.com",
-    phone: "+91 9876543210",
+    name: user?.name || "",
+    email: user?.email || "",
+    phone: "",
   });
 
   const [settings, setSettings] = useState({
@@ -20,35 +35,48 @@ export default function Settings() {
     navigationMode: "Wheelchair",
   });
 
+  // Load settings for the currently logged-in user
   useEffect(() => {
-    const savedSettings = localStorage.getItem("saksham_settings");
+    if (!user) return;
+
+    const savedSettings = localStorage.getItem(settingsKey);
 
     if (savedSettings) {
-      setSettings(JSON.parse(savedSettings));
+      try {
+        setSettings(JSON.parse(savedSettings));
+      } catch (error) {
+        console.error("Could not load saved settings:", error);
+      }
     }
-  }, []);
+  }, [settingsKey, user]);
+
+  // Dark mode
   useEffect(() => {
-  if (settings.darkMode) {
-    document.body.classList.add("dark-mode");
-  } else {
-    document.body.classList.remove("dark-mode");
-  }
-}, [settings.darkMode]);
+    if (settings.darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [settings.darkMode]);
 
-useEffect(() => {
-  if (settings.largeText) {
-    document.documentElement.style.fontSize = "18px";
-  } else {
-    document.documentElement.style.fontSize = "16px";
-  }
-}, [settings.largeText]);
+  // Large text
+  useEffect(() => {
+    if (settings.largeText) {
+      document.documentElement.style.fontSize = "18px";
+    } else {
+      document.documentElement.style.fontSize = "16px";
+    }
+  }, [settings.largeText]);
 
-useEffect(() => {
-  localStorage.setItem(
-    "saksham_settings",
-    JSON.stringify(settings)
-  );
-}, [settings]);
+  // Automatically save settings for THIS user
+  useEffect(() => {
+    if (!user) return;
+
+    localStorage.setItem(
+      settingsKey,
+      JSON.stringify(settings)
+    );
+  }, [settings, settingsKey, user]);
 
   const handleToggle = (field) => {
     setSettings((prev) => ({
@@ -58,38 +86,44 @@ useEffect(() => {
   };
 
   const handleSelect = (e) => {
-    setSettings({
-      ...settings,
+    setSettings((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
+    }));
   };
-  const speak = (text) => {
-  if (!settings.voiceFeedback) return;
 
-  const utterance = new SpeechSynthesisUtterance(text);
-  window.speechSynthesis.speak(utterance);
-};
+  const speak = (text) => {
+    if (!settings.voiceFeedback) return;
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
+  };
 
   const saveSettings = () => {
-  localStorage.setItem(
-    "saksham_settings",
-    JSON.stringify(settings)
-  );
+    localStorage.setItem(
+      settingsKey,
+      JSON.stringify(settings)
+    );
 
-  speak("Settings saved successfully");
+    speak("Settings saved successfully");
 
-  alert("Settings saved successfully!");
-};
+    alert("Settings saved successfully!");
+  };
 
   const logout = () => {
-    localStorage.clear();
+    // Remove only the logged-in user
+    // Keep other users' settings stored separately
+    localStorage.removeItem("user");
+
+    // Reset accessibility effects
+    document.body.classList.remove("dark-mode");
+    document.documentElement.style.fontSize = "16px";
+
     navigate("/");
   };
 
   return (
     <div className="settings-page">
-
-      
 
       <aside className="settings-sidebar">
 
@@ -124,23 +158,21 @@ useEffect(() => {
 
       </aside>
 
-      
-
       <main className="settings-content">
 
         <div className="page-header">
           ⚙️ SETTINGS
         </div>
 
-        
-
         <section className="settings-card">
+
           <h2>👤 User Profile</h2>
 
           <div className="profile-grid">
 
             <div>
               <label>Name</label>
+
               <input
                 value={profile.name}
                 onChange={(e) =>
@@ -154,6 +186,7 @@ useEffect(() => {
 
             <div>
               <label>Email</label>
+
               <input
                 value={profile.email}
                 onChange={(e) =>
@@ -167,6 +200,7 @@ useEffect(() => {
 
             <div>
               <label>Phone</label>
+
               <input
                 value={profile.phone}
                 onChange={(e) =>
@@ -179,14 +213,15 @@ useEffect(() => {
             </div>
 
           </div>
+
         </section>
 
-       
-
         <section className="settings-card">
+
           <h2>♿ Accessibility Settings</h2>
 
           <div className="toggle-row">
+
             <span>🌙 Dark Mode</span>
 
             <input
@@ -196,9 +231,11 @@ useEffect(() => {
                 handleToggle("darkMode")
               }
             />
+
           </div>
 
           <div className="toggle-row">
+
             <span>🔊 Voice Feedback</span>
 
             <input
@@ -208,9 +245,11 @@ useEffect(() => {
                 handleToggle("voiceFeedback")
               }
             />
+
           </div>
 
           <div className="toggle-row">
+
             <span>🔠 Large Text Mode</span>
 
             <input
@@ -220,12 +259,13 @@ useEffect(() => {
                 handleToggle("largeText")
               }
             />
+
           </div>
+
         </section>
 
-        
-
         <section className="settings-card">
+
           <h2>🧭 Module Preferences</h2>
 
           <div className="profile-grid">
@@ -272,6 +312,7 @@ useEffect(() => {
             </div>
 
           </div>
+
         </section>
 
         <button
@@ -282,6 +323,7 @@ useEffect(() => {
         </button>
 
       </main>
+
     </div>
   );
 }
